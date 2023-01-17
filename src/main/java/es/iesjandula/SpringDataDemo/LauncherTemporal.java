@@ -21,11 +21,11 @@ public class LauncherTemporal
         LauncherTemporal launcherTemporal = new LauncherTemporal();
 
         launcherTemporal.parsearAlumno();
-        launcherTemporal.parsearAsignatura();
+        //launcherTemporal.parsearAsignatura();
         launcherTemporal.parsearCurso();
         launcherTemporal.parsearDepartamento();
         launcherTemporal.parsearGrado();
-        launcherTemporal.parsearProfesor();
+        //launcherTemporal.parsearProfesor();
 
     }
 
@@ -84,54 +84,54 @@ public class LauncherTemporal
 
     }
 
-    public void parsearAsignatura()
-    {
-
-        final String separadorCampo = ",";
-
-        List<Asignatura> listaAsignaturas = new ArrayList<Asignatura>();
-
-        FileReader fileReader = null;
-        BufferedReader bufferedReader = null;
-
-        try
-        {
-            fileReader = new FileReader("src/main/resources/asignatura.csv");
-            bufferedReader = new BufferedReader(fileReader);
-
-            String linea;
-
-            //lee la cabecera y se la salta
-            bufferedReader.readLine();
-
-            while((linea = bufferedReader.readLine()) != null)
-            {
-
-                String[] asignaturaArray = linea.split(separadorCampo);
-
-                Asignatura asignatura = new Asignatura();
-                asignatura.setId(Long.parseLong(asignaturaArray[0]));
-                asignatura.setNombre(asignaturaArray[1]);
-                asignatura.setCreditos(Double.parseDouble(asignaturaArray[2]));
-                asignatura.setTipo(asignaturaArray[3]);
-                asignatura.setCurso(Integer.parseInt(asignaturaArray[4]));
-                asignatura.setCuatrimestre(Integer.parseInt(asignaturaArray[5]));
-                asignatura.setIdProfesor(asignaturaArray[6]); // volver a poner clase Profesor
-                asignatura.setIdGrado(asignaturaArray[7]); // volver a poner clase Grado
-
-                listaAsignaturas.add(asignatura);
-
-            }
-
-            System.out.println(listaAsignaturas);
-
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
+  // public void parsearAsignatura()
+  // {
+  //
+  //     final String separadorCampo = ",";
+  //
+  //     List<Asignatura> listaAsignaturas = new ArrayList<Asignatura>();
+  //
+  //     FileReader fileReader = null;
+  //     BufferedReader bufferedReader = null;
+  //
+  //     try
+  //     {
+  //         fileReader = new FileReader("src/main/resources/asignatura.csv");
+  //         bufferedReader = new BufferedReader(fileReader);
+  //
+  //         String linea;
+  //
+  //         //lee la cabecera y se la salta
+  //         bufferedReader.readLine();
+  //
+  //         while((linea = bufferedReader.readLine()) != null)
+  //         {
+  //
+  //             String[] asignaturaArray = linea.split(separadorCampo);
+  //
+  //             Asignatura asignatura = new Asignatura();
+  //             asignatura.setId(Long.parseLong(asignaturaArray[0]));
+  //             asignatura.setNombre(asignaturaArray[1]);
+  //             asignatura.setCreditos(Double.parseDouble(asignaturaArray[2]));
+  //             asignatura.setTipo(asignaturaArray[3]);
+  //             asignatura.setCurso(Integer.parseInt(asignaturaArray[4]));
+  //             asignatura.setCuatrimestre(Integer.parseInt(asignaturaArray[5]));
+  //             asignatura.setIdProfesor(asignaturaArray[6]); // volver a poner clase Profesor
+  //             asignatura.setIdGrado(asignaturaArray[7]); // volver a poner clase Grado
+  //
+  //             listaAsignaturas.add(asignatura);
+  //
+  //         }
+  //
+  //         System.out.println(listaAsignaturas);
+  //
+  //     } catch (FileNotFoundException e) {
+  //         throw new RuntimeException(e);
+  //     } catch (IOException e) {
+  //         throw new RuntimeException(e);
+  //     }
+  //
+  // }
 
     public void parsearCurso()
     {
@@ -272,61 +272,61 @@ public class LauncherTemporal
 
     }
 
-    public void parsearProfesor()
-    {
-
-        final String separadorCampo = ",";
-
-        List<Profesor> listaProfesores = new ArrayList<Profesor>();
-
-        FileReader fileReader = null;
-        BufferedReader bufferedReader = null;
-
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-
-        try
-        {
-            fileReader = new FileReader("src/main/resources/profesor.csv");
-            bufferedReader = new BufferedReader(fileReader);
-
-            String linea;
-
-            //lee la cabecera y se la salta
-            bufferedReader.readLine();
-
-            while((linea = bufferedReader.readLine()) != null)
-            {
-
-                String[] profesorArray = linea.split(separadorCampo);
-
-                Profesor profesor = new Profesor();
-                profesor.setId(Long.parseLong(profesorArray[0]));
-                profesor.setNif(profesorArray[1]);
-                profesor.setNombre(profesorArray[2]);
-                profesor.setApellido1(profesorArray[3]);
-                profesor.setApellido2(profesorArray[4]);
-                profesor.setCiudad(profesorArray[5]);
-                profesor.setDireccion(profesorArray[6]);
-                profesor.setTelefono(profesorArray[7]);
-                profesor.setFechaNacimiento((Date) formato.parse(profesorArray[8]));
-                profesor.setSexo(profesorArray[9]);
-                profesor.setIdDepartamento(profesorArray[10]); // volver a poner clase Departamento
-
-                listaProfesores.add(profesor);
-
-            }
-
-            System.out.println(listaProfesores);
-
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
+ //  public void parsearProfesor()
+ //  {
+ //
+ //      final String separadorCampo = ",";
+ //
+ //      List<Profesor> listaProfesores = new ArrayList<Profesor>();
+ //
+ //      FileReader fileReader = null;
+ //      BufferedReader bufferedReader = null;
+ //
+ //      SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+ //
+ //      try
+ //      {
+ //          fileReader = new FileReader("src/main/resources/profesor.csv");
+ //          bufferedReader = new BufferedReader(fileReader);
+ //
+ //          String linea;
+ //
+ //          //lee la cabecera y se la salta
+ //          bufferedReader.readLine();
+ //
+ //          while((linea = bufferedReader.readLine()) != null)
+ //          {
+ //
+ //              String[] profesorArray = linea.split(separadorCampo);
+ //
+ //              Profesor profesor = new Profesor();
+ //              profesor.setId(Long.parseLong(profesorArray[0]));
+ //              profesor.setNif(profesorArray[1]);
+ //              profesor.setNombre(profesorArray[2]);
+ //              profesor.setApellido1(profesorArray[3]);
+ //              profesor.setApellido2(profesorArray[4]);
+ //              profesor.setCiudad(profesorArray[5]);
+ //              profesor.setDireccion(profesorArray[6]);
+ //              profesor.setTelefono(profesorArray[7]);
+ //              profesor.setFechaNacimiento((Date) formato.parse(profesorArray[8]));
+ //              profesor.setSexo(profesorArray[9]);
+ //              profesor.setIdDepartamento(profesorArray[10]); // volver a poner clase Departamento
+ //
+ //              listaProfesores.add(profesor);
+ //
+ //          }
+ //
+ //          System.out.println(listaProfesores);
+ //
+ //      } catch (FileNotFoundException e) {
+ //          throw new RuntimeException(e);
+ //      } catch (IOException e) {
+ //          throw new RuntimeException(e);
+ //      } catch (ParseException e) {
+ //          throw new RuntimeException(e);
+ //      }
+ //
+ //  }
 
 }
 

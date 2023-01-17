@@ -2,13 +2,15 @@ package es.iesjandula.SpringDataDemo.models;
 
 import jakarta.persistence.Embeddable;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 @Embeddable
 public class MatriculaId implements Serializable
 {
 
-    private static final long serialVeersionUID = -2134654976831246538L;
+    @Serial
+    private static final long serialVersionUID = -6496874805144002414L;
 
     private Long idAlumno;
 
@@ -44,4 +46,5 @@ public class MatriculaId implements Serializable
     public void setIdCurso(Long idCurso) {
         this.idCurso = idCurso;
     }
+
 }

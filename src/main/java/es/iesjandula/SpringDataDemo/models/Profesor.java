@@ -41,7 +41,7 @@ public class Profesor
     private String sexo;
 
     @ManyToOne
-    private String idDepartamento;
+    private Departamento idDepartamento;
 
     public Profesor()
     {
@@ -128,11 +128,11 @@ public class Profesor
         this.sexo = sexo;
     }
 
-    public String getIdDepartamento() {
+    public Departamento getIdDepartamento() {
         return idDepartamento;
     }
 
-    public void setIdDepartamento(String idDepartamento) {
+    public void setIdDepartamento(Departamento idDepartamento) {
         this.idDepartamento = idDepartamento;
     }
 }

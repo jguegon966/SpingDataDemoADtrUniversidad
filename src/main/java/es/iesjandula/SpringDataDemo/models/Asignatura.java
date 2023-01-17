@@ -27,14 +27,10 @@ public class Asignatura
     private String tipo;
 
     @ManyToOne
-    @JoinColumn(name = "id_grado")
-    @MapsId("idGrado")
-    private String idGrado;
+    private Grado idGrado;
 
     @ManyToOne
-    @JoinColumn(name = "id_profesor")
-    @MapsId("idProfesor")
-    private String idProfesor;
+    private Profesor idProfesor;
 
     public Asignatura()
     {
@@ -89,19 +85,19 @@ public class Asignatura
         this.tipo = tipo;
     }
 
-    public String getIdGrado() {
+    public Grado getIdGrado() {
         return idGrado;
     }
 
-    public void setIdGrado(String idGrado) {
+    public void setIdGrado(Grado idGrado) {
         this.idGrado = idGrado;
     }
 
-    public String getIdProfesor() {
+    public Profesor getIdProfesor() {
         return idProfesor;
     }
 
-    public void setIdProfesor(String idProfesor) {
+    public void setIdProfesor(Profesor idProfesor) {
         this.idProfesor = idProfesor;
     }
 }
